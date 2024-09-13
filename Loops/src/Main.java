@@ -3,19 +3,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-//        while(true) {
-//            System.out.print("What is the numbers?: ");
-//            int a = scanner.nextInt();
-//            int b = scanner.nextInt();
-//
-//            System.out.printf("The result is %4d.\n", a + b);
-//            System.out.print("Continue? (y/n): ");
-//            String input = scanner.next();
-//            if(input.equals("n")) {
-//                break;
-//            }
-//        }
+        String input;
+        do {
+            System.out.print("Enter 2 numbers (exit to quit): ");
+            input = scanner.next();
+            if (!input.equals("exit")) {
+                int num1 = Integer.parseInt(input);
+                int num2 = scanner.nextInt();
+                System.out.printf("Result %d\n", num1 + num2);
+            } else {
+                break;
+            }
+        } while(true);
 //        int num = scanner.nextInt();
 //
 //
@@ -23,11 +22,24 @@ public class Main {
 //            System.out.println(i);
 //        }
 
-        for(int row = 0; row < 20; row ++) {
-            for (int col = 0; col < 20; col ++) {
-                
-            }
-        }
+//        int width = 11;
+//        int height = 15;
+//        int middleCol = width / 2;
+//        int middleRow = height / 2;
+//        int radius = 5;
+//        for(int row = 0; row < height; row ++) {
+//            for (int col = 0; col < width; col ++) {
+//                boolean isInCircle = Math.sqrt(
+//                        Math.pow(row - middleRow, 2) + Math.pow(col - middleCol, 2)
+//                ) < radius;
+//                if (isInCircle) {
+//                    System.out.printf("%3s", "*");
+//                } else {
+//                    System.out.printf("%3s", ".");
+//                }
+//            }
+//            System.out.println();
+//        }
 
     }
 }
