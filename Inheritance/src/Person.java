@@ -1,4 +1,4 @@
-public class Person {
+public class Person extends Object {
     private String name;
     private int age;
     private String id;
@@ -23,5 +23,22 @@ public class Person {
 
     public void doWork(){
         System.out.println("I am doing work!");
+    }
+
+    @Override
+    public String toString() {
+        return name +
+                "\n" +
+                age +
+                "\n" +
+                id +
+                "\n";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Person)) return false;
+        Person other = (Person) obj;
+        return other.id.equals(this.id);
     }
 }
