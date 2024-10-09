@@ -1,4 +1,4 @@
-public abstract class BankAccount {
+public abstract class BankAccount implements Balanceable {
     private String accountNumber;
     private double balance = 2000;
     private String accountHolderName;
@@ -9,6 +9,7 @@ public abstract class BankAccount {
         }
     }
 
+    @Override
     public double getBalance() {
         return balance;
     }

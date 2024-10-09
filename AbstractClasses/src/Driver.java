@@ -1,9 +1,19 @@
+import java.util.ArrayList;
+
 public class Driver {
     public static void main(String[] args) {
         try {
-            BankAccount sAccount = new SavingsAccount();
+            SavingsAccount sAccount = new SavingsAccount();
             BankAccount cAccount = new CheckingAccount();
-            emptyAccount(cAccount);
+//            emptyAccount(cAccount);
+            Person person = new Person(new CheckingAccount());
+            displayBalance(person);
+            displayBalance(sAccount);
+            displayBalance(cAccount);
+
+            ArrayList<Integer> a = new ArrayList<>();
+            serializeObject(person);
+            serializeObject(sAccount);
         } catch (BankAccount.WithdrawalException e) {
             System.out.println(e.getMessage());
         }
@@ -15,5 +25,13 @@ public class Driver {
     }
     public static void emptyAccount(BankAccount bankAccount) {
         bankAccount.withdraw(999999);
+    }
+
+    public static void displayBalance(Balanceable balanceable) {
+        System.out.println(balanceable.getBalance());
+    }
+
+    public static void serializeObject(Serializable serializable) {
+        System.out.println(serializable.serialize());
     }
 }
