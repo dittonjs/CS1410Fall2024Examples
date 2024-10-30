@@ -1,26 +1,22 @@
-public class LinkedList<T extends Comparable<T>> {
-    private static class Node<T extends Comparable<T>> {
+public class LinkedList<T> {
+    private static class Node<T> {
         T value;
         Node<T> next;
     }
 
     private Node<T> head = new Node<>();
-
+    private Node<T> tail = null;
     // O(n)
     public void insert(T value) {
-        Node<T> previous = head;
-        Node<T> current = head.next;
-        while(current != null) {
-            if (current.value.compareTo(value) > 0) {
-                break;
-            }
-            previous = current;
-            current = current.next;
+        Node<T> newNode = new Node<>();
+        newNode.value = value;
+        if (tail == null) {
+            head.next = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
         }
-        Node<T> node = new Node<>();
-        node.value = value;
-        node.next = current;
-        previous.next = node;
     }
 
     public boolean remove(T value) {
@@ -29,6 +25,9 @@ public class LinkedList<T extends Comparable<T>> {
         while(current != null) {
             if (current.value.equals(value)) {
                 previous.next = current.next;
+                if (current == tail) {
+                    tail = previous;
+                }
                 return true;
             }
             previous = current;

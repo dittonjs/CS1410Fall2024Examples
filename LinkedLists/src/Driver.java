@@ -10,7 +10,10 @@ public class Driver {
         nums.insert(23);
         nums.displayList();
         System.out.println();
-        nums.remove(546);
+        nums.remove(23);
+        nums.displayList();
+        nums.insert(100);
+        System.out.println();
         nums.displayList();
     }
 }
