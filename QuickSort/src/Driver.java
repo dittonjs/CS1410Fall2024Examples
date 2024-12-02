@@ -16,6 +16,8 @@ public class Driver {
         quickSort(data, 0, data.length - 1);
     }
 
+
+    // O(n*log(n))
     private static <T extends Comparable<T>> void quickSort(T[] data, int start, int end) {
         if (start >= end) return;
         int pivot = partition(data, start, end);
